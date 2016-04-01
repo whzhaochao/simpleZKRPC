@@ -29,7 +29,7 @@
         <constructor-arg name="providerConfig">
             <bean id="providerConfig" class="com.zhaochao.rpc.invoke.ProviderConfig">
                 <constructor-arg name="port" value="8081"/>
-                <constructor-arg name="target" value="zookeeper://121.40.50.112:2181"/>
+                <constructor-arg name="target" value="zookeeper://127.0.0.1:2181"/>
             </bean>
         </constructor-arg>
     </bean>
