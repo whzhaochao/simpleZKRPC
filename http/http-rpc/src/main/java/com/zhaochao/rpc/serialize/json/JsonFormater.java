@@ -8,12 +8,10 @@ import com.zhaochao.rpc.serialize.Request;
 /**
  * Created on 2015/8/17.
  */
-public class JsonFormater implements Formater
-{
+public class JsonFormater implements Formater {
     public static final Formater formater = new JsonFormater();
 
-    public String reqFormat(Class clazz, String method, Object param)
-    {
+    public String reqFormat(Class clazz, String method, Object param) {
         Request request = new Request();
         request.setParam(param);
         request.setClazz(clazz);
@@ -21,8 +19,7 @@ public class JsonFormater implements Formater
         return JSON.toJSONString(request, SerializerFeature.WriteClassName);
     }
 
-    public String rsbFormat(Object param)
-    {
+    public String rsbFormat(Object param) {
         return JSON.toJSONString(param, SerializerFeature.WriteClassName);
     }
 

@@ -11,30 +11,25 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by version_z on 2015/8/22.
  */
-public class HttpContainer extends Container
-{
+public class HttpContainer extends Container {
     private static final Logger logger = LoggerFactory.getLogger(HttpContainer.class);
 
     private AbstractHandler httpHandler;
     private ProviderConfig providerConfig;
 
-    public HttpContainer(AbstractHandler httpHandler)
-    {
-        this(httpHandler, new ProviderConfig("/invoke",8080));
+    public HttpContainer(AbstractHandler httpHandler) {
+        this(httpHandler, new ProviderConfig("/invoke", 8080));
     }
 
-    public HttpContainer(AbstractHandler httpHandler,ProviderConfig providerConfig)
-    {
+    public HttpContainer(AbstractHandler httpHandler, ProviderConfig providerConfig) {
         this.httpHandler = httpHandler;
         this.providerConfig = providerConfig;
         container = this;
     }
 
-    public void start()
-    {
+    public void start() {
         Server server = new Server();
-        try
-        {
+        try {
             SelectChannelConnector connector = new SelectChannelConnector();
             connector.setPort(providerConfig.getPort());
             server.setConnectors(new Connector[]{
@@ -42,9 +37,7 @@ public class HttpContainer extends Container
             });
             server.setHandler(httpHandler);
             server.start();
-        }
-        catch (Throwable e)
-        {
+        } catch (Throwable e) {
             logger.error("Container error", e);
         }
     }

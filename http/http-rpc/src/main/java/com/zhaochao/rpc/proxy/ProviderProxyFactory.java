@@ -72,7 +72,7 @@ public class ProviderProxyFactory extends AbstractHandler
         if (config != null){
             config.register(clazz);
         }
-        logger.info("{} �Ѿ�����", clazz.getSimpleName());
+        logger.info("{} register service success!", clazz.getSimpleName());
     }
 
 
